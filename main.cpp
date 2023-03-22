@@ -1,12 +1,11 @@
-#include "gotocelldialog.h"
-
+//#include "ui_sortdialog.h"
+#include "sortdialog.h"
 #include <QApplication>
-
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-    QApplication a(argc, argv);
-
-    GoToCellDialog *dialog = new GoToCellDialog;
+    QApplication app(argc, argv);
+    SortDialog *dialog = new SortDialog;
+    dialog->setColumnRange('C', 'F');
     dialog->show();
-    return a.exec();
+    return app.exec();
 }
