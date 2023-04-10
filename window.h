@@ -2,9 +2,7 @@
 #define WINDOW_H
 
 #include <QWidget>
-#include <QLabel>
-#include <QPushButton>
-#include <QEvent>
+class Label;
 
 class Window : public QWidget
 {
@@ -12,11 +10,10 @@ class Window : public QWidget
 
 public:
     Window(QWidget *parent = nullptr);
+    virtual bool event(QEvent *event) override;
+//    virtual void mouseMoveEvent(QMouseEvent *event)override;
     ~Window();
-public slots:
-    bool eventFilter(QObject *watched, QEvent *event) override;
 private:
-    QLabel *_label;
-    QPushButton *_button;
+    Label *_label;
 };
 #endif // WINDOW_H
