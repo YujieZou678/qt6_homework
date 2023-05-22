@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>window_bridge</class>
- <widget class="QMainWindow" name="window_bridge">
+ <class>Window</class>
+ <widget class="QMainWindow" name="Window">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>480</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Window</string>
   </property>
-  <property name="windowIcon">
-   <iconset resource="sp.qrc">
-    <normaloff>:/images/icon.png</normaloff>:/images/icon.png</iconset>
-  </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QWidget" name="centralwidget"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>640</width>
+     <width>800</width>
      <height>30</height>
     </rect>
    </property>
@@ -31,54 +27,18 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="action_New"/>
     <addaction name="action_Open"/>
-    <addaction name="action_Save"/>
-    <addaction name="actionSave_As"/>
-    <addaction name="separator"/>
-    <addaction name="actionE_xit"/>
+    <addaction name="action_Close"/>
+    <addaction name="action_Exit"/>
    </widget>
-   <widget class="QMenu" name="menuEdit">
+   <widget class="QMenu" name="menuPlay">
     <property name="title">
-     <string>Edit</string>
+     <string>Play</string>
     </property>
-    <addaction name="actionCu_t"/>
-    <addaction name="action_copy"/>
-    <addaction name="action_Paste"/>
-    <addaction name="action_Delete"/>
-   </widget>
-   <widget class="QMenu" name="menuTools">
-    <property name="title">
-     <string>Tools</string>
-    </property>
-    <addaction name="action_Typeface"/>
-    <addaction name="action_Color"/>
-    <addaction name="separator"/>
-    <addaction name="action_Undo"/>
-    <addaction name="action_Redo"/>
-   </widget>
-   <widget class="QMenu" name="menuOptions">
-    <property name="title">
-     <string>Options</string>
-    </property>
-    <widget class="QMenu" name="menu_BackgroundColor">
-     <property name="title">
-      <string>&amp;BackgroundColor</string>
-     </property>
-     <addaction name="action_White_2"/>
-     <addaction name="action_LightYellow"/>
-     <addaction name="action_eeeddd"/>
-     <addaction name="action_f5f5f5"/>
-    </widget>
-    <addaction name="action_Right"/>
-    <addaction name="action_Center"/>
-    <addaction name="action_Left"/>
-    <addaction name="separator"/>
-    <addaction name="action_Bold"/>
-    <addaction name="action_Italic"/>
-    <addaction name="action_UnderLine"/>
-    <addaction name="separator"/>
-    <addaction name="menu_BackgroundColor"/>
+    <addaction name="action_Start"/>
+    <addaction name="action_Pause"/>
+    <addaction name="action_Stop"/>
+    <addaction name="actionFullScreen"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -87,20 +47,13 @@
     <addaction name="action_About"/>
    </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuEdit"/>
-   <addaction name="menuTools"/>
-   <addaction name="menuOptions"/>
+   <addaction name="menuPlay"/>
    <addaction name="menuHelp"/>
   </widget>
-  <widget class="QToolBar" name="toolBar">
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolbar">
    <property name="windowTitle">
     <string>toolBar</string>
-   </property>
-   <property name="movable">
-    <bool>false</bool>
-   </property>
-   <property name="toolButtonStyle">
-    <enum>Qt::ToolButtonIconOnly</enum>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -108,243 +61,93 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="action_New"/>
    <addaction name="action_Open"/>
-   <addaction name="action_Save"/>
-   <addaction name="actionE_xit"/>
-   <addaction name="action_Left"/>
-   <addaction name="action_Center"/>
-   <addaction name="action_Right"/>
-   <addaction name="action_Bold"/>
-   <addaction name="action_Italic"/>
-   <addaction name="action_UnderLine"/>
-   <addaction name="action_Undo"/>
-   <addaction name="action_Redo"/>
+   <addaction name="action_Close"/>
+   <addaction name="action_Start"/>
+   <addaction name="action_Pause"/>
+   <addaction name="action_Stop"/>
   </widget>
-  <widget class="QDockWidget" name="dockWidget">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="floating">
-    <bool>false</bool>
-   </property>
-   <property name="features">
-    <set>QDockWidget::NoDockWidgetFeatures</set>
-   </property>
-   <attribute name="dockWidgetArea">
-    <number>1</number>
-   </attribute>
-   <widget class="QWidget" name="dockWidgetContents"/>
-  </widget>
-  <action name="action_New">
-   <property name="icon">
-    <iconset theme="document-new" resource="sp.qrc">
-     <normaloff>:/images/new.png</normaloff>:/images/new.png</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;New</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+N</string>
-   </property>
-  </action>
   <action name="action_Open">
    <property name="icon">
-    <iconset theme="document-open" resource="sp.qrc">
-     <normaloff>:/images/open.png</normaloff>:/images/open.png</iconset>
+    <iconset theme="document-open">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>&amp;Open</string>
    </property>
   </action>
-  <action name="action_Save">
-   <property name="icon">
-    <iconset theme="document-save">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Save</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+S</string>
-   </property>
-  </action>
-  <action name="actionSave_As">
-   <property name="icon">
-    <iconset theme="document-save-as">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
-   <property name="text">
-    <string>Save &amp;As</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+Alt+S</string>
-   </property>
-  </action>
-  <action name="actionE_xit">
+  <action name="action_Exit">
    <property name="icon">
     <iconset theme="application-exit">
      <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
-    <string>E&amp;xit</string>
+    <string>&amp;Exit</string>
    </property>
   </action>
-  <action name="actionCu_t">
-   <property name="icon">
-    <iconset theme="edit-cut">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
-   <property name="text">
-    <string>Cu&amp;t</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+X</string>
-   </property>
-  </action>
-  <action name="action_copy">
-   <property name="icon">
-    <iconset theme="edit-copy">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;copy</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+C</string>
-   </property>
-  </action>
-  <action name="action_Paste">
-   <property name="icon">
-    <iconset theme="edit-paste">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Paste</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+V</string>
-   </property>
-  </action>
-  <action name="action_Delete">
+  <action name="action_Close">
    <property name="icon">
     <iconset theme="edit-delete">
      <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
-    <string>&amp;Delete</string>
+    <string>&amp;Close</string>
    </property>
   </action>
-  <action name="action_Typeface">
+  <action name="action_Start">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset theme="media-playback-start">
+     <normaloff>.</normaloff>.</iconset>
+   </property>
    <property name="text">
-    <string>&amp;Font</string>
+    <string>&amp;Start</string>
    </property>
   </action>
-  <action name="action_Color">
+  <action name="action_Stop">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset theme="media-playback-stop">
+     <normaloff>.</normaloff>.</iconset>
+   </property>
    <property name="text">
-    <string>&amp;TextColor</string>
+    <string>&amp;Stop</string>
+   </property>
+  </action>
+  <action name="actionFullScreen">
+   <property name="icon">
+    <iconset theme="view-fullscreen">
+     <normaloff>.</normaloff>.</iconset>
+   </property>
+   <property name="text">
+    <string>FullScreen</string>
    </property>
   </action>
   <action name="action_About">
+   <property name="icon">
+    <iconset theme="help-about">
+     <normaloff>.</normaloff>.</iconset>
+   </property>
    <property name="text">
     <string>&amp;About</string>
    </property>
   </action>
-  <action name="action_Right">
+  <action name="action_Pause">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
-    <iconset theme="format-justify-right">
-     <normaloff>.</normaloff>.</iconset>
+    <iconset theme="media-playback-pause"/>
    </property>
    <property name="text">
-    <string>&amp;Right</string>
-   </property>
-  </action>
-  <action name="action_Center">
-   <property name="icon">
-    <iconset theme="format-justify-center">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Center</string>
-   </property>
-  </action>
-  <action name="action_Left">
-   <property name="icon">
-    <iconset theme="format-justify-left">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Left</string>
-   </property>
-  </action>
-  <action name="action_Bold">
-   <property name="icon">
-    <iconset theme="format-text-bold">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Bold</string>
-   </property>
-  </action>
-  <action name="action_Italic">
-   <property name="icon">
-    <iconset theme="format-text-italic">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Italic</string>
-   </property>
-  </action>
-  <action name="action_UnderLine">
-   <property name="icon">
-    <iconset theme="format-text-underline">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;UnderLine</string>
-   </property>
-  </action>
-  <action name="action_Undo">
-   <property name="icon">
-    <iconset theme="edit-undo">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Undo</string>
-   </property>
-  </action>
-  <action name="action_Redo">
-   <property name="icon">
-    <iconset theme="edit-redo">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Redo</string>
-   </property>
-  </action>
-  <action name="action_White_2">
-   <property name="text">
-    <string>&amp;White</string>
-   </property>
-  </action>
-  <action name="action_LightYellow">
-   <property name="text">
-    <string>&amp;LightYellow</string>
-   </property>
-  </action>
-  <action name="action_eeeddd">
-   <property name="text">
-    <string>&amp;#eeeddd</string>
-   </property>
-  </action>
-  <action name="action_f5f5f5">
-   <property name="text">
-    <string>#f5f5f5</string>
+    <string>&amp;Pause</string>
    </property>
   </action>
  </widget>
- <resources>
-  <include location="sp.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

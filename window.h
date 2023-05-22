@@ -1,82 +1,48 @@
-// 文本编辑器
-// author:zouyujie
-// date: 2023-04-22
-
 #ifndef WINDOW_H
 #define WINDOW_H
 
 #include <QMainWindow>
-#include <QFileDialog>
 
-class QTextEdit;
-class QListWidget;
-class QFont;
-class QColor;
-class QTextCharFormat;
-class QListWidgetItem;
-class QTimer;
-class QLabel;
+QT_BEGIN_NAMESPACE
+namespace Ui { class Window; }
+QT_END_NAMESPACE
 
-namespace Ui {
-class window_bridge;
-}
+class QVideoWidget;
+class QMediaPlayer;
+class QAudioOutput;
 
 class Window : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit Window(QWidget *parent = nullptr);
+    Window(QWidget *parent = nullptr);
     ~Window();
 
     bool eventFilter(QObject *watched, QEvent *event) override;
-    void update();
-
-private:
-    Ui::window_bridge *_ui;
-
-    QString m_fileName;
-    QTextEdit *textEdit;
-    //QTextEdit *textEdit;
-    //QListWidget *textList;
-    QFont font;
-    QColor color;
-    QListWidgetItem *item;
-    QListWidget *textList;
-    QTimer *timer;
-    QLabel *statusLabel_pos;
-    QLabel *statusLabel_time;
 
 private slots:
-    void on_action_New_triggered();
-
     void on_action_Open_triggered();
 
-    void on_action_Save_triggered();
+    void on_action_Exit_triggered();
 
-    void on_actionSave_As_triggered();
+    void on_action_Close_triggered();
 
-    void on_actionE_xit_triggered();
+    void on_actionFullScreen_triggered();
 
-    void on_actionCu_t_triggered();
-    void on_action_copy_triggered();
-    void on_action_Paste_triggered();
-    void on_action_About_triggered();
-    void on_action_Typeface_triggered();
-    void on_action_Color_triggered();
-    void on_action_Right_triggered();
-    void on_action_Center_triggered();
-    void on_action_Left_triggered();
-    void on_action_Bold_triggered();
-    void on_action_Italic_triggered();
-    void on_action_UnderLine_triggered();
-    void on_action_Undo_triggered();
-    void on_action_Redo_triggered();
-    void on_action_White_2_triggered();
-    void on_action_LightYellow_triggered();
-    void on_action_eeeddd_triggered();
-    void on_action_f5f5f5_triggered();
-    void on_dockWidget_allowedAreasChanged(const Qt::DockWidgetAreas &allowedAreas);
+    void on_action_Start_triggered();
+
+    void on_action_Stop_triggered();
+
+    void on_action_Pause_triggered();
+
+private:
+    Ui::Window *ui;
+
+    QVideoWidget *videoWidget;
+    QMediaPlayer *player;
+    //QAudioOutput *audioOutput;  //要在每次播放(play)之前重新添加音频，不然可能会突然没声音，原因不知
+
+    QString m_fileName;
 };
-
 #endif // WINDOW_H
